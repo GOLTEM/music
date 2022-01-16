@@ -6,8 +6,8 @@ import CustomButton from '../../components/buttons/CustomButton'
 
 function HomaPage() {
     return (
-        <GeneralLayout>
-            <div className="max-w-7xl flex flex-col items-center mx-auto">
+        <GeneralLayout heading={'mp3AfroJam | Home Page'} description={'Home page for our site to Download mp3 song, Naija Music, New South African Music, Afrobeats, Hip Hop Tune, Albums, Singles'}>
+            <div className="max-w-7xl flex flex-col items-center mx-auto ">
                 <div className="flex flex-col text-lg font-bold text-black">
                     <div className="flex flex-row items-center justify-between">
                         <p className='my-8 ml-2'>Recent Posts</p>

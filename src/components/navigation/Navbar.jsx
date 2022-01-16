@@ -4,21 +4,15 @@ import {
     Modal,
     ModalOverlay,
     ModalContent,
-    ModalHeader,
-    ModalFooter,
     ModalBody,
-    ModalCloseButton,
     useDisclosure,
     Button,
     Menu,
     MenuButton,
     MenuList,
-    MenuItem,
-    MenuItemOption,
-    MenuGroup,
-    MenuOptionGroup,
-    MenuDivider,
+    MenuItem
 } from '@chakra-ui/react'
+import logo from '../../assets/logo.png'
 
 const music_genres = [
     { name: 'albums' },
@@ -32,9 +26,9 @@ const music_genres = [
 function Navbar() {
     const { isOpen, onOpen, onClose } = useDisclosure()
     return (
-        <nav className='flex flex-row items-center md:px-16 px-8 justify-between h-16 '>
+        <nav className='flex flex-row items-center lg:px-0 md:px-16 px-8 justify-between h-16 max-w-7xl mx-auto '>
             <div className="font-semibold uppercase">
-                mp3AfroJam
+                <img src={logo} alt="logo for navbar of mp3afrojam" />
             </div>
             <div className="flex gap-8 md:flex flex-row items-center hidden">
                 {
@@ -68,6 +62,7 @@ function Navbar() {
                         </MenuButton>
                         <MenuList>
                             {
+                
                                 music_genres?.map((genre, index) => (
                                     <MenuItem key={index} className='text-sm text-gray-700 uppercase'>{genre.name}</MenuItem>
                                 ))
