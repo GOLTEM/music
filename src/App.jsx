@@ -8,6 +8,8 @@ import Singles from './pages/singles/Singles';
 import Vidoes from './pages/videos/Vidoes';
 import Eps from './pages/eps/Eps';
 import News from './pages/news/News';
+import RecentPosts from './pages/recent_posts/RecentPosts';
+import Trending from './pages/trending/Trending';
 
 function App() {
   return (
@@ -19,6 +21,8 @@ function App() {
         <Route path="/eps" element={<Eps />} />
         <Route path="/news" element={<News />} />
         <Route path='/explore' element={<Home />} />
+        <Route path='/recent' element={<RecentPosts />} />
+        <Route path='/trending' element={<Trending />} />
         <Route exact path='/' element={<HomaPage />} />
         <Route path='*' element={<NotFound />} />
       </Routes >
