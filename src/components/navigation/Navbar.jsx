@@ -1,5 +1,5 @@
 import React from 'react'
-import { SearchIcon, MenuAlt2Icon, ChevronDownIcon } from '@heroicons/react/outline'
+import { SearchIcon, MenuAlt2Icon } from '@heroicons/react/outline'
 import {
     Modal,
     ModalOverlay,
@@ -13,27 +13,29 @@ import {
     MenuItem
 } from '@chakra-ui/react'
 import logo from '../../assets/logo.png'
+import { useNavigate } from 'react-router-dom'
 
 const music_genres = [
-    { name: 'albums' },
-    { name: 'singles' },
-    { name: 'vidoes' },
-    { name: 'ep' },
-    { name: 'news' },
-    { name: 'more' },
+    { name: 'albums', location: '/albums' },
+    { name: 'singles', location: '/singles' },
+    // { name: 'videos', location: '/videos' },
+    { name: 'ep', location: '/eps' },
+    { name: 'news', location: '/news' },
+    { name: 'more', location: '/more' },
 ]
 
 function Navbar() {
+    const navigate = useNavigate();
     const { isOpen, onOpen, onClose } = useDisclosure()
     return (
         <nav className='flex flex-row items-center lg:px-0 md:px-16 px-8 justify-between h-16 max-w-7xl mx-auto '>
-            <div className="font-semibold uppercase">
-                <img src={logo} alt="logo for navbar of mp3afrojam" />
+            <div onClick={()=> navigate('/')} className="font-semibold uppercase overflow-hidden cursor-pointer">
+                <img src={logo} alt="logo for navbar of mp3afrojam" className='md:h-16 h-8 object-contain' />
             </div>
             <div className="flex gap-8 md:flex flex-row items-center hidden">
                 {
                     music_genres?.map((genre, index) => (
-                        <div key={index} className="uppercase cursor-pointer text-gray-700 font-semibold">{genre.name}</div>
+                        <div key={index} onClick={()=> navigate(genre.location)} className="uppercase cursor-pointer text-gray-700 font-semibold">{genre.name}</div>
                     ))
                 }
             </div>
@@ -62,7 +64,7 @@ function Navbar() {
                         </MenuButton>
                         <MenuList>
                             {
-                
+
                                 music_genres?.map((genre, index) => (
                                     <MenuItem key={index} className='text-sm text-gray-700 uppercase'>{genre.name}</MenuItem>
                                 ))
